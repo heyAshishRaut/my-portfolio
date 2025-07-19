@@ -6,7 +6,7 @@ import tools from "./ui_icons/featured.jpg"
 import vector from "./ui_icons/vectorimg.svg"
 import last from "./ui_icons/last2.jpg"
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -79,7 +79,7 @@ const cardVariants = {
 };
 
 function App() {
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
 
     // PROJECT 
     const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
