@@ -189,7 +189,7 @@ function App() {
 
             {/* Landing Section */}
             <div className="w-full text-white flex flex-col items-center justify-center
-            pt-80
+            pt-64
             md:pt-32
             ">
                 {/* Freelance badge */}
@@ -233,7 +233,7 @@ function App() {
                 {/* Footer Info */}
                 <motion.div
                     className="w-full flex items-center justify-between 
-                    px-[8px] pb-24
+                    px-[8px] pb-36
                     md:pb-0
                     md:px-0
                     pt-24 text-sm
