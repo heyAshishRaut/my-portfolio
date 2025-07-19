@@ -127,7 +127,7 @@ function App() {
             {/* Navbar */}
             <motion.div
                 className="h-[10%] w-full flex items-center justify-between text-white
-                pt-2 px-4
+                pt-4 px-4
                 md:pt-8 md:px-0"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -339,11 +339,11 @@ function App() {
                     variants={childVariants}
                 >
                     <div className="font-bold
-                    text-4xl
-                    md:text-6xl">Projects</div>
+                    text-4xl text-white
+                    md:text-6xl md:text-black">Projects</div>
                     <div className="
-                    text-lg
-                    md:text-2xl">Built with purpose. Designed to perform.</div>
+                    text-lg text-white
+                    md:text-2xl md:text-black">Built with purpose. Designed to perform.</div>
                 </motion.div>
 
                 <motion.div
@@ -424,14 +424,14 @@ function App() {
             >
                 <div
                     style={{ backgroundImage: `url(${other})` }}
-                    className="h-[150px] text-black md:h-[200px] w-full bg-cover flex flex-col items-start justify-end pl-4 pb-2"
+                    className="h-[150px] md:h-[200px] w-full bg-cover flex flex-col items-start justify-end pl-4 pb-2"
                 >
                     <div className="font-bold pt-2
-                    text-3xl
-                    md:text-6xl">Other projects</div>
+                    text-3xl text-white
+                    md:text-6xl md:text-black">Other projects</div>
                     <div className=" font-semibold
-                    text-lg
-                    md:text-2xl">small builds, big learning.</div>
+                    text-lg text-white
+                    md:text-2xl md:text-black">small builds, big learning.</div>
                 </div>
             </motion.div>
 
@@ -614,11 +614,11 @@ function App() {
                     </div>
 
                     <div className="h-[520px] w-full flex pt-4">
-                        <div className="h-full w-1/2">
+                        <div className="hidden md:block h-full w-1/2">
                             <img src={vector} alt="" className="h-[90%] w-full" />
                         </div>
 
-                        <div className="h-full w-1/2 flex flex-col px-20 gap-y-4 tracking-wide">
+                        <div className="h-full w-full md:w-1/2 flex flex-col px-4 md:px-20 gap-y-4 tracking-wide">
                             <div
                                 style={{
                                     wordSpacing: "0.3rem",
