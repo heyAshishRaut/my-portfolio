@@ -65,6 +65,25 @@ const projectData = [
     { id: "06", title: "VS Code Web Clone", desc: "A frontend clone of VS Code Web using React, mimicking its side menu and theme structure." },
 ];
 
+const skills = [
+    "HTML", "CSS", "JAVASCRIPT", "NODEJS", "EXPRESS", "TAILWIND",
+    "MONGODB", "REACT", "TYPESCRIPT", "WEBSOCKET", "POSTGRESQL", "NEXTJS",
+    "GIT", "POSTMAN", "PYTHON", "JAVA", "RESEND", "PYDANTIC"
+];
+
+const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i: number) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+            delay: i * 0.1,
+            duration: 0.6,
+            ease: "easeIn"
+        }
+    })
+};
+
 const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: (i: number) => ({
@@ -79,8 +98,6 @@ const cardVariants = {
 };
 
 function App() {
-    // const [isOpen, setIsOpen] = useState(false);
-
     // PROJECT 
     const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
     const controls = useAnimation();
@@ -96,7 +113,6 @@ function App() {
         triggerOnce: true,
     });
 
-
     return (
         <div
             style={{
@@ -104,7 +120,7 @@ function App() {
             }}
 
             className="uppercase text-white min-h-screen w-screen bg-black
-            px-[8px] tracking-wide
+             tracking-wide
             md:px-[50px] md:tracking-widest
             lg:px-[120px]"
         >
@@ -117,8 +133,8 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
             >
-                <div className="text-lg md:text-xl">LOCAL / 08:39:36</div>
-                <div className="text-lg md:text-xl flex gap-x-10">
+                <div className="text-lg md:text-xl">// 08:39:36</div>
+                {/* <div className="text-lg md:text-xl flex gap-x-10">
 
                     <div className="h-[10%] w-full flex justify-end items-center">
                         <motion.div
@@ -144,31 +160,8 @@ function App() {
                         </motion.div>
 
                     </div>
-                    <div className="h-[10%] w-full flex justify-end items-center">
-                        <motion.div
-                            className="relative w-fit cursor-pointer"
-                            initial="rest"
-                            whileHover="hover"
-                            animate="rest"
-                        >
-                            <span className="text-white pb-2 inline-flex
-                                    text-sm
-                                    md:text-lg">
-                                <span>stack</span>
-                            </span>
 
-                            <motion.div
-                                className="absolute bottom-0 left-0 h-[3px] bg-white"
-                                variants={{
-                                    rest: { width: 0 },
-                                    hover: { width: "100%" },
-                                }}
-                                transition={{ duration: 0.4, ease: "easeInOut" }}
-                            />
-                        </motion.div>
-
-                    </div>
-                    <div className="h-[10%] w-full flex justify-end items-center">
+                    <div className="flex h-[10%] w-full justify-end items-center">
                         <motion.div
                             className="relative w-fit cursor-pointer"
                             initial="rest"
@@ -191,29 +184,12 @@ function App() {
                             />
                         </motion.div>
                     </div>
-                </div>
-
-                {/* Toggle Button */}
-                {/* <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="relative w-8 h-8 focus:outline-none cursor-pointer"
-                >
-                    
-                    <span
-                        className={`absolute h-0.5 w-8 bg-white transform transition duration-300 ease-in-out
-                        ${isOpen ? "rotate-45 top-3.5" : "top-2.5"}`}
-                    />
-                    
-                    <span
-                        className={`absolute h-0.5 w-8 bg-white transform transition duration-300 ease-in-out
-                        ${isOpen ? "-rotate-45 top-3.5" : "top-5"}`}
-                    />
-                </button> */}
+                </div> */}
             </motion.div>
 
             {/* Landing Section */}
             <div className="w-full text-white flex flex-col items-center justify-center
-            pt-44
+            pt-64
             md:pt-32
             ">
                 {/* Freelance badge */}
@@ -257,6 +233,8 @@ function App() {
                 {/* Footer Info */}
                 <motion.div
                     className="w-full flex items-center justify-between 
+                    px-[8px]
+                    md:px-0
                     pt-24 text-sm
                     md:pt-36 md:text-xl"
                     initial={{ opacity: 0, y: 20 }}
@@ -567,112 +545,112 @@ function App() {
                 </div>
             </motion.div>
 
-            <div className="flex w-full gap-x-4 pb-4">
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">html</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">CSS</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">JAVASCRIPT</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">NODEJS</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">EXPRESS</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">TAILWIND</div>
-            </div>
+            {/* Skills */}
+            <motion.div
+                className="grid grid-cols-3 md:grid-cols-6 gap-4 pb-36 w-full
+                px-[8px]
+                md:px-0"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.4 }}
+            >
+                {skills.map((skill, i) => (
+                    <motion.div
+                        key={skill}
+                        className="border-2 py-4 border-neutral-500 text-center test-sm md:text-xl font-semibold bg-transparent"
+                        // @ts-ignore
+                        variants={fadeInUp}
+                        custom={i}
 
-            <div className="flex pb-4 w-full gap-x-4">
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">MONGODB</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">REACT</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">TYPESCRIPT</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">WEBSOCKET</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">POSTGRESQL</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">NEXTJS</div>
-            </div>
+                        // <-- add this for the hover lift
+                        whileHover={{ y: -6 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    >
+                        {skill}
+                    </motion.div>
+                ))}
+            </motion.div>
 
-            <div className="flex pb-36 w-full gap-x-4">
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">GIT</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">POSTMAN</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">PYTHON</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">JAVA</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">RESEND</div>
-                <div className="border-2 py-4 border-neutral-500 w-1/6 text-center text-xl font-semibold">PYDANTIC</div>
-            </div>
+            {/* Message */}
+            <div className="px-[8px] md:px-0">
+                <div
+                    style={{
+                        background: 'linear-gradient(to right, #fff, #076585)'
+                    }}
 
-
-            <div
-                style={{
-                    background: 'linear-gradient(to right, #fff, #076585)'
-                }}
-
-                className=" w-full flex flex-col rounded-xl">
-                <div className="h-[150px] text-black md:h-[200px] w-full bg-cover flex flex-col items-start justify-end pb-2">
-                    <div className="font-bold pt-2 pl-4
+                    className=" w-full flex flex-col rounded-xl">
+                    <div className="h-[150px] text-black md:h-[200px] w-full bg-cover flex flex-col items-start justify-end pb-2">
+                        <div className="font-bold pt-2 pl-4
                     text-3xl
                     md:text-6xl">message</div>
-                    <div className=" font-semibold pl-4
+                        <div className=" font-semibold pl-4
                     text-lg
                     md:text-2xl">Need something specific or have a cool idea? <span className=" text-white">Let's build</span> it together! </div>
-                    <div className="h-8 md:h-14 w-full">
-                        <div className="h-full w-full overflow-hidden">
-                            <svg
-                                className="h-full w-full"
-                                xmlns="http://www.w3.org/2000/svg"
-                                preserveAspectRatio="none"
-                            >
-                                <defs>
-                                    <pattern
-                                        id="diagonal-stripes"
-                                        patternUnits="userSpaceOnUse"
-                                        width="8"
-                                        height="8"
-                                        patternTransform="rotate(-45)"
-                                    >
-                                        <rect width="1" height="8" fill="white" />
-                                    </pattern>
-                                </defs>
-                                <rect width="100%" height="100%" fill="transparent" />
-                                <rect width="100%" height="100%" fill="url(#diagonal-stripes)" />
-                            </svg>
+                        <div className="h-8 md:h-14 w-full">
+                            <div className="h-full w-full overflow-hidden">
+                                <svg
+                                    className="h-full w-full"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="none"
+                                >
+                                    <defs>
+                                        <pattern
+                                            id="diagonal-stripes"
+                                            patternUnits="userSpaceOnUse"
+                                            width="8"
+                                            height="8"
+                                            patternTransform="rotate(-45)"
+                                        >
+                                            <rect width="1" height="8" fill="white" />
+                                        </pattern>
+                                    </defs>
+                                    <rect width="100%" height="100%" fill="transparent" />
+                                    <rect width="100%" height="100%" fill="url(#diagonal-stripes)" />
+                                </svg>
+                            </div>
                         </div>
+
                     </div>
 
+                    <div className="h-[520px] w-full flex pt-4">
+                        <div className="h-full w-1/2">
+                            <img src={vector} alt="" className="h-[90%] w-full" />
+                        </div>
+
+                        <div className="h-full w-1/2 flex flex-col px-20 gap-y-4 tracking-wide">
+                            <div
+                                style={{
+                                    wordSpacing: "0.3rem",
+                                }}
+                                className="w-full flex flex-col gap-y-1">
+                                <div className="text-lg font-semibold">full name</div>
+                                <input type="text" placeholder="John Doe" className="py-3 rounded-lg px-4 outline-none text-black" />
+                            </div>
+                            <div className="w-full flex flex-col gap-y-1">
+                                <div className="text-lg font-semibold">email</div>
+                                <input type="text" placeholder="example@gmail.com" className="py-3 rounded-lg px-4 outline-none text-black" />
+                            </div>
+                            <div className="w-full flex flex-col gap-y-1">
+                                <div className="text-lg font-semibold">message</div>
+                                <textarea
+                                    name="message"
+                                    id="message"
+                                    className="outline-none w-full rounded-lg text-black p-3 border border-gray-300 resize-none"
+                                    rows={7}
+                                    placeholder="Drop your thoughts here"
+                                ></textarea>
+                            </div>
+                            <div className="w-1/2 self-end flex gap-x-3 pt-1">
+                                <button className="w-1/2 py-3 rounded-lg bg-white text-black">Cancel</button>
+                                <button className="w-1/2 py-3 rounded-lg bg-black">Send</button>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-
-                <div className="h-[520px] w-full flex pt-4">
-                    <div className="h-full w-1/2">
-                        <img src={vector} alt="" className="h-[90%] w-full" />
-                    </div>
-
-                    <div className="h-full w-1/2 flex flex-col px-20 gap-y-4 tracking-wide">
-                        <div
-                            style={{
-                                wordSpacing: "0.3rem",
-                            }}
-                            className="w-full flex flex-col gap-y-1">
-                            <div className="text-lg font-semibold">full name</div>
-                            <input type="text" placeholder="John Doe" className="py-3 rounded-lg px-4 outline-none text-black" />
-                        </div>
-                        <div className="w-full flex flex-col gap-y-1">
-                            <div className="text-lg font-semibold">email</div>
-                            <input type="text" placeholder="example@gmail.com" className="py-3 rounded-lg px-4 outline-none text-black" />
-                        </div>
-                        <div className="w-full flex flex-col gap-y-1">
-                            <div className="text-lg font-semibold">message</div>
-                            <textarea
-                                name="message"
-                                id="message"
-                                className="outline-none w-full rounded-lg text-black p-3 border border-gray-300 resize-none"
-                                rows={7}
-                                placeholder="Drop your thoughts here"
-                            ></textarea>
-                        </div>
-                        <div className="w-1/2 self-end flex gap-x-3 pt-1">
-                            <button className="w-1/2 py-3 rounded-lg bg-white text-black">Cancel</button>
-                            <button className="w-1/2 py-3 rounded-lg bg-black">Send</button>
-                        </div>
-
-                    </div>
-                </div>
-
-
             </div>
-
+            
+            {/* Footer */}
             <div className="">
                 <div className=" w-full bg-cover h-[800px]"
                     style={{ backgroundImage: `url(${last})` }}>
@@ -705,7 +683,7 @@ function App() {
                                 WebkitTextStroke: "2px #00c3ff50",
                                 color: "transparent"
                             }}
-                            className="text-[170px] font-semibold text-center leading-none">ashish raut</div>
+                            className="text-[100px] md:text-[170px] font-semibold text-center leading-none">ashish</div>
                     </div>
                 </div>
             </div>
