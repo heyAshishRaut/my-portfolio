@@ -249,11 +249,10 @@ function App() {
                         initial={{ x: -100, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="sticky top-4 left-[8px] md:left-0 flex justify-start items-start text-sm"
+                        className="sticky top-4 left-[8px] md:left-0 flex justify-start items-start text-[12px]"
                     >
-                        <div className="bg-white/80 backdrop-blur-xl border-2 border-gray-400/70 px-6 py-4 font-semibold text-black rounded-lg shadow-lg">
+                        <div className="bg-white/80 backdrop-blur-xl border border-gray-400/70 px-6 py-4 text-black rounded-lg shadow-lg">
                             {alertMsg}
-                    
                         </div>
                     </motion.div>
                 ) : ""
@@ -809,7 +808,7 @@ function App() {
                                     className="w-full py-3 rounded-lg bg-black text-white"
                                     disabled={loading}
                                 >
-                                    {loading ? "Sending..." : "Send"}
+                                    Send
                                 </button>
                             </div>
                         </form>
