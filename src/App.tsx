@@ -248,7 +248,7 @@ function App() {
                         initial={{ x: -100, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="sticky top-4 left-[8px] md:left-0 flex justify-start items-start text-[12px]"
+                        className="sticky top-4 pl-4 flex justify-start items-start text-[12px]"
                     >
                         <div className="bg-white/80 backdrop-blur-xl border border-gray-400/70 px-6 py-4 text-black rounded-lg shadow-lg">
                             {alertMsg}
@@ -472,10 +472,10 @@ function App() {
                     animate={controls}
                     variants={childVariants}
                 >
-                    <div className="font-bold
+                    <div className="font-bold pl-4
                     text-4xl
                     md:text-6xl">Projects</div>
-                    <div className="
+                    <div className="pl-4
                     text-lg
                     md:text-2xl">Built with purpose. Designed to perform.</div>
                 </motion.div>
