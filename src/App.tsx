@@ -41,7 +41,7 @@ const projectsData = [
         title: "01. Stack",
         desc: "Stack helps you organize all your important links - categorized smartly by source and easily shareable for a limited time.",
         img: stack,
-        github: "https://github.com/heyAshishRaut",
+        github: "https://gist.github.com/heyAshishRaut/08fa27f626490788a109c22036d4ae13",
         live: "https://www.stackforweb.space/show"
     },
     {
