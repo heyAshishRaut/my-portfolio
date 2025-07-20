@@ -167,12 +167,11 @@ function App() {
             const res = await fetch("https://formsubmit.co/ajax/theashish32@gmail.com", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "application/x-www-form-urlencoded", 
                     Accept: "application/json",
                 },
-                body: JSON.stringify(formData),
+                body: new URLSearchParams(formData).toString(), 
             });
-
             const data = await res.json();
 
             if (data.success === "true") {
